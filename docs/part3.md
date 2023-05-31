@@ -1,4 +1,4 @@
-# Tutorial
+# Part III: Knowledge-based XC functional exploration
 
 ## Introduction
 
