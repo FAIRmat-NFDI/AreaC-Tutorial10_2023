@@ -4,7 +4,7 @@
 
 In the workflow-documentation directory, create your own virtual environment with Python3.9:
 ```
-python3 -m venv .pyenvdoc
+python3 -m venv .pyenvtuto
 ```
 and activate it in your shell:
 ```
