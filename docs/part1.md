@@ -34,7 +34,7 @@ All of these menus contain (meta)information important for these calculations, a
 Once you decide searching for a set of materials with certain properties derived from your prefered methodology, NOMAD gives you another tool to perform a query via API calls. This can be found when clicking the symbol `<>` on the GUI. In [Part II](part2.md), we will show you how to use this API query to get data and work with it in a Jupyter Notebook for analysis.
 
 <p align="center">
-    <img src="../assets/part1_explore/api.PNG" alt="API query" width="80%" title="API query">
+    <img src="../assets/part1_explore/api.png" alt="API query" width="80%" title="API query">
 </p>
 
 Another functionality we will explore more in detail is the fact that not all the defined NOMAD metainfo is shown in the filter menus in the GUI. We decide to select a few quantities we think might be important, nevertheless, the full information of a given system, methodology, or property can be found under the Metainfo tab. NOMAD also has a web with all the definitions that you can find under the tab menu "Analyze > The NOMAD Metainfo".
