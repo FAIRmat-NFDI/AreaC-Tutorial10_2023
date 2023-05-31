@@ -19,10 +19,10 @@ We land on the NOMAD Entries page, a very intuitive and easy-to-use Graphical Us
 
 
 <p align="center">
-    <img src="../assets/part1_explore/explore.png" alt="Explore GUI page" width="80%" title="Explore GUI page">
+    <img src="../assets/part1_explore/explore.PNG" alt="Explore GUI page" width="80%" title="Explore GUI page">
 </p>
 <p align="center">
-    <img src="../assets/part1_explore/materials.png" alt="Materials menu" width="80%" title="Materials menu">
+    <img src="../assets/part1_explore/materials.PNG" alt="Materials menu" width="80%" title="Materials menu">
 </p>
 
 There are several options to filter from data in NOMAD. As for this tutorial, we will focus on electronic structure calculations, i.e., data obtained when solving Density Functional Theory (`DFT`), `GW` approximation, Bethe-Salpeter equation (`BSE`), projected tight-binding models (`Projection`), and Dynamical Mean-Field Theory (`DMFT`). 
@@ -34,11 +34,11 @@ All of these menus contain (meta)information important for these calculations, a
 Once you decide searching for a set of materials with certain properties derived from your prefered methodology, NOMAD gives you another tool to perform a query via API calls. This can be found when clicking the symbol `<>` on the GUI. In [Part II](part2.md), we will show you how to use this API query to get data and work with it in a Jupyter Notebook for analysis.
 
 <p align="center">
-    <img src="../assets/part1_explore/api.png" alt="API query" width="80%" title="API query">
+    <img src="../assets/part1_explore/api.PNG" alt="API query" width="80%" title="API query">
 </p>
 
 Another functionality we will explore more in detail is the fact that not all the defined NOMAD metainfo is shown in the filter menus in the GUI. We decide to select a few quantities we think might be important, nevertheless, the full information of a given system, methodology, or property can be found under the Metainfo tab. NOMAD also has a web with all the definitions that you can find under the tab menu "Analyze > The NOMAD Metainfo".
 
 <p align="center">
-    <img src="../assets/part1_explore/nomadmetainfo.png" alt="The NOMAD metainfo" width="80%" title="The NOMAD metainfo">
+    <img src="../assets/part1_explore/nomadmetainfo.PNG" alt="The NOMAD metainfo" width="80%" title="The NOMAD metainfo">
 </p>
