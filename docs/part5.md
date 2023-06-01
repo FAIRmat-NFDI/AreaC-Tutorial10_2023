@@ -3,7 +3,7 @@
 This part contains the basic knowledge on understanding and learning to use NOMAD workflows, and its relation with DFT and beyond-DFT (GW, BSE, DMFT, etc.) methodologies.
 ## Introduction
 
-We will use a ficticious example of a simulation workflow, where the [files and folder structure](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part5_workflows/tutorial_example_files.zip) is:
+We will use a ficticious example of a simulation workflow, where the [files and folder structure](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part5_workflows/example_files.zip) is:
 ```
 .
 ├── pressure1
@@ -55,6 +55,8 @@ The goal of this tutorial is to set up the following workflows:
 2. An overarching workflow entry for each pressure P<sub>i=1,2</sub>, grouping all `SinglePoint` "DFT", "TB", "DMFT at T<sub>1</sub>", and "DMFT at T<sub>2</sub>" tasks.
 3. A top level workflow entry, grouping together all pressure calculations.
 
+The files for all these cases can be found in [Workflow YAML files](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part5_workflows/workflowyaml_files.zip). We recommend you to try writing these files yourself first, and then comparing them with the tested files.
+
 ## Starting example: SinglePoint workflow
 
 NOMAD is able to [recognize certain workflows in an automatic way](#automatic-workflows), such as the `SinglePoint` case mentioned above. However, to showcase how to the use workflows in NOMAD, we will "manually" construct the SinglePoint workflow, represented by the following provenance graph:
@@ -78,7 +80,7 @@ workflow2:
     - name: Output calculation
       section: '../upload/archive/mainfile/pressure1/dft_p1.xml#/run/0/calculation/-1'
   tasks:
-    - m_def: nomad.datamodel.metainfo.workflow2.TaskReference
+    - m_def: nomad.datamodel.metainfo.workflow.TaskReference
       task: '../upload/archive/mainfile/pressure1/dft_p1.xml#/workflow2'
       name: DFT at Pressure P1
       inputs:
@@ -120,7 +122,7 @@ workflow2:
     - name: Output calculation
       section: '../upload/archive/mainfile/pressure1/dft_p1.xml#/run/0/calculation/-1'
   tasks:
-    - m_def: nomad.datamodel.metainfo.workflow2.TaskReference
+    - m_def: nomad.datamodel.metainfo.workflow.TaskReference
       task: '../upload/archive/mainfile/pressure1/dft_p1.xml#/workflow2'
       name: DFT at Pressure P1
       inputs:
@@ -164,7 +166,7 @@ Now, `tasks` are defined for each of the methodologies performed (each correspon
 Then:
 ```yaml
   tasks:
-    - m_def: nomad.datamodel.metainfo.workflow2.TaskReference
+    - m_def: nomad.datamodel.metainfo.workflow.TaskReference
       task: '../upload/archive/mainfile/pressure1/dft_p1.xml#/workflow2'
       name: DFT at P1
       inputs:
@@ -173,7 +175,7 @@ Then:
       outputs:
         - name: Output DFT at P1 calculation
           section: '../upload/archive/mainfile/pressure1/dft_p1.xml#/run/0/calculation/-1'
-    - m_def: nomad.datamodel.metainfo.workflow2.TaskReference
+    - m_def: nomad.datamodel.metainfo.workflow.TaskReference
       task: '../upload/archive/mainfile/pressure1/tb_p1.wout#/workflow2'
       name: TB at P1
       inputs:
@@ -182,7 +184,7 @@ Then:
       outputs:
         - name: Output TB at P1 calculation
           section: '../upload/archive/mainfile/pressure1/tb_p1.wout#/run/0/calculation/-1'
-    - m_def: nomad.datamodel.metainfo.workflow2.TaskReference
+    - m_def: nomad.datamodel.metainfo.workflow.TaskReference
       task: '../upload/archive/mainfile/pressure1/temperature1/dmft_p1_t1.hdf5#/workflow2'
       name: DMFT at P1 and T1
       inputs:
@@ -191,7 +193,7 @@ Then:
       outputs:
         - name: Output DMFT at P1, T1 calculation
           section: '../upload/archive/mainfile/pressure1/temperature1/dmft_p1_t1.hdf5#/run/0/calculation/-1'
-    - m_def: nomad.datamodel.metainfo.workflow2.TaskReference
+    - m_def: nomad.datamodel.metainfo.workflow.TaskReference
       task: '../upload/archive/mainfile/pressure1/temperature1/dmft_p1_t1.hdf5#/workflow2'
       name: DMFT at P1 and T2
       inputs:
@@ -270,7 +272,7 @@ And `outputs`:
 Finally, `tasks` references the previous YAML schemas as follows:
 ```yaml
   tasks:
-    - m_def: nomad.datamodel.metainfo.workflow2.TaskReference
+    - m_def: nomad.datamodel.metainfo.workflow.TaskReference
       task: '../upload/archive/mainfile/pressure1.archive.yaml#/workflow2'
       name: DFT+TB+DMFT at P1
       inputs:
@@ -281,7 +283,7 @@ Finally, `tasks` references the previous YAML schemas as follows:
           section: '../upload/archive/mainfile/pressure1/temperature1/dmft_p1_t1.hdf5#/run/0/calculation/-1'
         - name: Output DMFT at P1, T2 calculation
           section: '../upload/archive/mainfile/pressure1/temperature2/dmft_p1_t2.hdf5#/run/0/calculation/-1'
-    - m_def: nomad.datamodel.metainfo.workflow2.TaskReference
+    - m_def: nomad.datamodel.metainfo.workflow.TaskReference
       task: '../upload/archive/mainfile/pressure2.archive.yaml#/workflow2'
       name: DFT+TB+DMFT at P2
       inputs:
