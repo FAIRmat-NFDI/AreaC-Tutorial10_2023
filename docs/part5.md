@@ -1,11 +1,9 @@
 # Part V: Workflows and how to link DFT and beyond-DFT calculations.
 
+This part contains the basic knowledge on understanding and learning to use NOMAD workflows, and its relation with DFT and beyond-DFT (GW, BSE, DMFT, etc.) methodologies.
 ## Introduction
 
-We will use a ficticious example of a simulation workflow, where the [files and folder structure](https://github.com/FAIRmat-NFDI/workflow-documentation/tree/main/docs/assets/part5_workflows/tutorial_example_files.zip) is:
-<!---
-Here I should add a href for the files in a zip
--->
+We will use a ficticious example of a simulation workflow, where the [files and folder structure](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part5_workflows/tutorial_example_files.zip) is:
 ```
 .
 ├── pressure1
