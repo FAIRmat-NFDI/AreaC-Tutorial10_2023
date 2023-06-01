@@ -34,7 +34,7 @@ Once you have decided searching for a set of materials with certain properties a
     <img src="../assets/part1_explore/api.png" alt="API query" width="90%" title="API query">
 </p>
 
-Another functionality we will explore more in detail later on is the fact that not all the defined metadata quantities are shown in the filter menus on the GUI, but instead we decided to select a few representative quantities with the help and feedback of experts in the field. Nevertheless, the full information of a given system, methodology, or property can be found under the Metainfo data section (see [Part II](part2.md)). NOMAD also has a web with all the definitions that you can find under the top left menu "Analyze > The NOMAD Metainfo".
+Another functionality we will explore more in detail later on is the fact that not all the defined metadata quantities are shown in the filter menus on the GUI, but instead we decided to select a few representative quantities with the help and feedback of experts in the field. Nevertheless, the full information of a given system, methodology, or property can be found under the Metainfo data section (see [Part II](part2.md)). NOMAD also has a web with all the definitions that you can find under the top-left menu "Analyze > The NOMAD Metainfo".
 
 <p align="center">
     <img src="../assets/part1_explore/nomadmetainfo.png" alt="The NOMAD metainfo" width="90%" title="The NOMAD metainfo">

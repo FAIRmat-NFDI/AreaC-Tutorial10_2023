@@ -1,9 +1,6 @@
 # Part V: Workflows and how to link DFT and beyond-DFT calculations.
 
-This part contains the basic knowledge on understanding and learning to use NOMAD workflows, and its relation with DFT and beyond-DFT (GW, BSE, DMFT, etc.) methodologies.
-## Introduction
-
-We will use a ficticious example of a simulation workflow, where the [files and folder structure](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part5_workflows/example_files.zip) is:
+This part contains the basic knowledge on understanding and learning to use NOMAD workflows, and its relation with DFT and beyond-DFT (GW, BSE, DMFT, etc.) methodologies. We will use a ficticious example of a simulation workflow, where the [files and folder structure](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part5_workflows/example_files.zip) is:
 ```
 .
 ├── pressure1
@@ -49,7 +46,7 @@ graph LR;
 ```
 Here, "Input" refers to the all _input_ information given to perform the calculation (e.g., atom positions, model parameters, experimental initial conditions, etc.). "DFT", "TB" and "DMFT" refer to individual _tasks_ of the workflow, which each correspond to a _SinglePoint_ entry in NOMAD. "Output calculation" refers to the _output_ data of each of the final DMFT tasks.
 
-The goal of this tutorial is to set up the following workflows:
+The goal of this part is to set up the following workflows:
 
 1. A `SinglePoint` workflow for one of the calculations (e.g., the DFT one) in the `pressure1` subfolder.
 2. An overarching workflow entry for each pressure P<sub>i=1,2</sub>, grouping all `SinglePoint` "DFT", "TB", "DMFT at T<sub>1</sub>", and "DMFT at T<sub>2</sub>" tasks.
@@ -314,7 +311,7 @@ Here are some general guidelines for preparing your upload folder in order to ma
 - Avoid having to go up and down between folders if some properties are derived between these files. These situations are very complicated to predict for the current NOMAD infrastructure.
 - Avoid duplication of files in subfolders. If initially you do a calculation A from which a later calculation B is derived and you want to store B in a subfolder, there is no need to copy the A files inside the subfolder B.
 
-The folder structure used throughout this Tutorial is a good example of a clean upload which is friendly and easy to work with when defining NOMAD workflows.
+The folder structure used throughout this part is a good example of a clean upload which is friendly and easy to work with when defining NOMAD workflows. Another example can be found in [Part II](part2.md), when we uploaded the DFT+GW calculation for bulk Si<sub>2</sub> and an automatic GW workflow entry was generated.
 
 
 
