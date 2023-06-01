@@ -60,12 +60,9 @@ The files for all these cases can be found in [Workflow YAML files](https://gith
 NOMAD is able to [recognize certain workflows in an automatic way](#automatic-workflows), such as the `SinglePoint` case mentioned above. However, to showcase how to the use workflows in NOMAD, we will "manually" construct the SinglePoint workflow, represented by the following provenance graph:
 ```mermaid
 graph LR;
-    subgraph SinglePoint
-    A((Input structure)) --> B[DFT];
+    A((Inputs)) --> B[DFT];
     B[DFT] --> C([Output calculation]);
-    end
 ```
-
 To define a workflow manually in NOMAD, we must add a `YAML` file to the upload folder that contains the relevant input, output, and task information. This file should be named `<filename>.archive.yaml`[^1]. In this case, we include the file `single_point.archive.yaml` with the following content:
 
 ```yaml
