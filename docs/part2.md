@@ -7,15 +7,21 @@ This part contains the information on how to make an upload with computational d
 
 Go to the [NOMAD Entries page](https://nomad-lab.eu/prod/v1/staging/gui/search/entries), and click on the top-left menu "Publish > Uploads". 
 
-<p align="center">
-    <img src="../assets/part2_upload/upload1.png" alt="Uploads page 1" width="90%" title="Uploads page 1">
-</p>
+<div class="click-zoom">
+    <label>
+        <input type="checkbox">
+        <img src="../assets/part2_upload/upload1.png" alt="Uploads page 1" width="90%" title="Uploads page 1">
+    </label>
+</div>
 
 We can then click on "Create a new upload" button, or even try one of the examples in "Add example uploads". The page for creating a new upload allows us to upload, edit author metadata, and publish our data with an embargo. The system works with by dragging-and-dropping files compressed inside zip or tar file. In order for certain codes and features to be parsed, we recommend you trying your own files or visiting the top-left menu "About > About NOMAD". For this tutorial, we are going to use DFT and GW calculations done by the code [_exciting_](https://exciting-code.org/). 
 
-<p align="center">
-    <img src="../assets/part2_upload/gwupload.gif" alt="GW upload gif" width="90%" title="GW upload gif">
-</p>
+<div class="click-zoom">
+    <label>
+        <input type="checkbox">
+        <img src="../assets/part2_upload/gwupload.gif" alt="GW upload gif" width="90%" title="GW upload gif">
+    </label>
+</div>
 
 
 ## Browsing entries
@@ -24,9 +30,12 @@ As you can see in the GIF, after we drag-and-drop the zipped files a processing 
 
 We can browse each entry by clicking on right arrow `→`. We land in the Overview page of the entry, which contains basic information and visualizations for the entry.
 
-<p align="center">
-    <img src="../assets/part2_upload/overview.png" alt="Entry overview" width="90%" title="Entry overview">
-</p>
+<div class="click-zoom">
+    <label>
+        <input type="checkbox">
+        <img src="../assets/part2_upload/overview.png" alt="Entry overview" width="90%" title="Entry overview">
+    </label>
+</div>
 
 Extra visualizations, such as the _Electronic properties_ or the _Workflow graph_ will appear depending on the character of the entry (for example, a Molecular Dynamics calculation will not contain _Electronic properties_ but rather _Thermodynamic properties_ and _Trajectories_ visualizations, see [FAIRmat tutorial 7](https://www.fairmat-nfdi.eu/events/fairmat-tutorial-7/tutorial-7-home)).
 
@@ -37,9 +46,12 @@ Extra visualizations, such as the _Electronic properties_ or the _Workflow graph
 
 Lastly, besides Overview, we can also visit "Files", a list of all the files present in the entry folder, "Data", the populated metadata sections and quantities, and "Logs, a list of logging success, warnings and errors. In the "Data" menu, we can check which sections and quantities (as defined in "Analyze > The NOMAD Metainfo") has been populated.
 
-<p align="center">
-    <img src="../assets/part2_upload/datatab.png" alt="Metadata entry menu" width="90%" title="Metadata entry menu">
-</p>
+<div class="click-zoom">
+    <label>
+        <input type="checkbox">
+        <img src="../assets/part2_upload/datatab.png" alt="Metadata entry menu" width="90%" title="Metadata entry menu">
+    </label>
+</div>
 
 
 <!--TODO: add Jupyter Notebook querying-->
