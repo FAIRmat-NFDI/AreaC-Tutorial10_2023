@@ -54,6 +54,7 @@ The goal of this part is to set up the following workflows:
 
 The files for all these cases can be found in [Workflow YAML files](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part5_workflows/workflowyaml_files.zip). We recommend you to try writing these files yourself first, and then comparing them with the tested files.
 
+
 ## Starting example: SinglePoint workflow
 
 NOMAD is able to [recognize certain workflows in an automatic way](#automatic-workflows), such as the `SinglePoint` case mentioned above. However, to showcase how to the use workflows in NOMAD, we will "manually" construct the SinglePoint workflow, represented by the following provenance graph:
@@ -306,7 +307,6 @@ There are some cases where the NOMAD infrastructure is able to recognize certain
 
 Here are some general guidelines for preparing your upload folder in order to make it easier for the _automatic workflow recognition_ to work:
 
-<!--More suggestions?-->
 - Always organize your files in an **upwards-downwards structure**, i.e., the initial _tasks_ should be upper in the directory tree, while the later _tasks_ lower on it.
 - Avoid having to go up and down between folders if some properties are derived between these files. These situations are very complicated to predict for the current NOMAD infrastructure.
 - Avoid duplication of files in subfolders. If initially you do a calculation A from which a later calculation B is derived and you want to store B in a subfolder, there is no need to copy the A files inside the subfolder B.

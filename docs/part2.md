@@ -2,6 +2,7 @@
 
 This part contains the information on how to make an upload with computational data in NOMAD, how to browse through the parsed metadata, and how to use API calls to query data in NOMAD for analysis. We will use the example files for a [DFT+GW calculation for Si<sub>2</sub>](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part2_upload/GWexample_Si2.zip). Similar to the [Part I](part1.md), a more general tutorial can be found in the [FAIRmat tutorial 1](https://www.fairmat-nfdi.eu/events/fairmat-tutorial-1/tutorial-1-home) and the materials therein.
 
+
 ## Uploading computational data to NOMAD
 
 Go to the [NOMAD Entries page](https://nomad-lab.eu/prod/v1/staging/gui/search/entries), and click on the top-left menu "Publish > Uploads". 
@@ -15,6 +16,7 @@ We can then click on "Create a new upload" button, or even try one of the exampl
 <p align="center">
     <img src="../assets/part2_upload/gwupload.gif" alt="GW upload gif" width="90%" title="GW upload gif">
 </p>
+
 
 ## Browsing entries
 
@@ -40,4 +42,4 @@ Lastly, besides Overview, we can also visit "Files", a list of all the files pre
 </p>
 
 
-
+<!--TODO: add Jupyter Notebook querying-->

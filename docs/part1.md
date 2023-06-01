@@ -2,6 +2,7 @@
 
 This part contains the information on how to explore the NOMAD Archive and Repository (in short, NOMAD-lab) in order to find electronic-structure calculations data. A more general tutorial can be found in the [FAIRmat tutorial 1](https://www.fairmat-nfdi.eu/events/fairmat-tutorial-1/tutorial-1-home) and the materials therein.
 
+
 ## Exploring NOMAD
 
 Go to the [NOMAD-lab website](https://nomad-lab.eu/nomad-lab/). 
@@ -13,9 +14,7 @@ There are two main versions when exploring NOMAD-lab: the stable version (by cli
     <img src="../assets/part1_explore/beta2.png" alt="Finding the Beta in the website, option 2" width="41.5%" title="NOMAD Beta option 2">
 </p>
 
-
 The landing NOMAD Entries page is a very intuitive and easy-to-use Graphical User Interface (GUI). Here we can explore data according to our preferences by clicking on the filter menus on the left. We can then select a variety of quantities that characterize the Material or system under study, the methodology parameters followed in the calculation or experiment, and the output properties. 
-
 
 <p align="center">
     <img src="../assets/part1_explore/explore.png" alt="Explore GUI page" width="90%" title="Explore GUI page">
@@ -25,6 +24,7 @@ The landing NOMAD Entries page is a very intuitive and easy-to-use Graphical Use
 </p>
 
 As you can see, there is a large variety of options to filter data in NOMAD. In this tutorial, we will focus on electronic-structure calculations, i.e., data obtained when solving Density Functional Theory (`DFT`), `GW` approximation, Bethe-Salpeter equation (`BSE`), projected tight-binding models (`Projection`), and Dynamical Mean-Field Theory (`DMFT`), as well as in the Properties menu called "Electronic". All of these menus contain (meta)information important for these calculations, and we are aiming for users and experts on these fields to help us shaping them according to their preferences. If you feel some important quantity is missing, or maybe you want to extend to other electronic-structure techniques, please contact us!
+
 
 ## Going beyond the GUI: querying data and the NOMAD metainfo
 
