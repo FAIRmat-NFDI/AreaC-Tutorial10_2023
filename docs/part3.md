@@ -1,1 +1,1 @@
-# Part III: Knowledge-based XC functional exploration
+# Part III: Numerical precision in _ab initio_ calculations.

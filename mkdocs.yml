@@ -6,9 +6,9 @@ nav:
   - Introduction: index.md
   - Part I - Exploring NOMAD: part1.md
   - Part II - Making an upload: part2.md
-  - Part III - Knowledge-based XC functionals exploration: part3.md
-  - Part IV - Precision in NOMAD: part4.md
-  - Part V - Workflows in NOMAD: part5.md
+  - Part III - Numerical precision in NOMAD: part3.md
+  - Part IV - Workflows in NOMAD: part4.md
+  - Part V - Knowledge-based XC functionals exploration: part5.md
 theme:
   name: material
   palette:

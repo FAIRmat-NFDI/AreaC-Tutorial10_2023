@@ -14,7 +14,7 @@ There are two main versions when exploring NOMAD-lab: the stable version (by cli
     <img src="../assets/part1_explore/beta2.png" alt="Finding the Beta in the website, option 2" width="41.5%" title="NOMAD Beta option 2">
 </p>
 
-The landing NOMAD Entries page is a very intuitive and easy-to-use Graphical User Interface (GUI). Here we can explore data according to our preferences by clicking on the filter menus on the left. We can then select a variety of quantities that characterize the Material or system under study, the methodology parameters followed in the calculation or experiment, and the output properties. 
+The landing NOMAD Entries page is a very intuitive and easy-to-use Graphical User Interface (GUI). Here you can explore data according to your preferences by clicking on the filter menus on the left. You can then select a variety of quantities that characterize the Material or system under study, the methodology parameters followed in the calculation or experiment, and the output properties. 
 
 <div class="click-zoom">
     <label>
@@ -29,25 +29,25 @@ The landing NOMAD Entries page is a very intuitive and easy-to-use Graphical Use
     </label>
 </div>
 
-As you can see, there is a large variety of options to filter data in NOMAD. In this tutorial, we will focus on electronic-structure calculations, i.e., data obtained when solving Density Functional Theory (`DFT`), `GW` approximation, Bethe-Salpeter equation (`BSE`), projected tight-binding models (`Projection`), and Dynamical Mean-Field Theory (`DMFT`), as well as in the Properties menu called "Electronic". All of these menus contain (meta)information important for these calculations, and we are aiming for users and experts on these fields to help us shaping them according to their preferences. If you feel some important quantity is missing, or maybe you want to extend to other electronic-structure techniques, please contact us!
+There is a large variety of options to filter data in NOMAD. In this tutorial, you will learn about data for electronic-structure calculations, i.e., data obtained when solving Density Functional Theory (`DFT`), `GW` approximation, Bethe-Salpeter equation (`BSE`), projected tight-binding models (`Projection`), and Dynamical Mean-Field Theory (`DMFT`), as well as in the Properties menu called "Electronic". All of these menus contain (meta)information important for these calculations. If you feel some important quantity is missing, or maybe you want to extend to other electronic-structure techniques, please contact us!
 
 
-## Going beyond the GUI: querying data and the NOMAD metainfo
+## Going beyond the GUI: the NOMAD metainfo and querying data
 
-Once you have decided searching for a set of materials with certain properties and derived from your prefered methodology, NOMAD gives you another tool to perform a query via Application Programming Interface (API) queries or calls. This can be found by clicking the symbol `<>` at the top of the filter menus. In [Part II](part2.md), we will show you how to use an API query to get GW data and work with it in a Jupyter Notebook for analysis and plotting of the DFT and GW band structure.
-
-<div class="click-zoom">
-    <label>
-        <input type="checkbox">
-        <img src="../assets/part1_explore/api.png" alt="API query" width="90%" title="API query">
-    </label>
-</div>
-
-Another functionality we will explore more in detail later on is the fact that not all the defined metadata quantities are shown in the filter menus on the GUI, but instead we decided to select a few representative quantities with the help and feedback of experts in the field. Nevertheless, the full information of a given system, methodology, or property can be found under the Metainfo data section (see [Part II](part2.md)). NOMAD also has a web with all the definitions that you can find under the top-left menu "Analyze > The NOMAD Metainfo".
+The most important aspect of NOMAD is the metainfo definitions. The whole set of NOMAD metainfo definitions can be found in the top-left menu "Analyze > The NOMAD Metainfo". As you can see, not all the quantities and sections appear in the GUI exploration menus, but rather a selected group. In [Part II](part2.md), you will learn how to explore this metainfo for a specific entry.
 
 <div class="click-zoom">
     <label>
         <input type="checkbox">
         <img src="../assets/part1_explore/nomadmetainfo.png" alt="The NOMAD metainfo" width="90%" title="The NOMAD metainfo">
+    </label>
+</div>
+
+Another important functionality in NOMAD is being able to perform queries and analyze the resulting downloaded data from it. Once you have decided searching for a set of materials with certain properties and derived from your prefered methodology, NOMAD gives you another tool to perform a query via Application Programming Interface (API) queries or calls. This can be found by clicking the symbol `<>` at the top of the filter menus. In [Part II](part2.md), you will learn how to use an API query to get GW data and work with it in a Jupyter Notebook for analysis and plotting of the DFT and GW band structure.
+
+<div class="click-zoom">
+    <label>
+        <input type="checkbox">
+        <img src="../assets/part1_explore/api.png" alt="API query" width="90%" title="API query">
     </label>
 </div>
