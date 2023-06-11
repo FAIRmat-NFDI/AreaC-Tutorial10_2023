@@ -25,6 +25,10 @@ markdown_extensions:
   - md_in_html
   - admonition
   - footnotes
+  - markdown.extensions.extra
+  - markdown.extensions.codehilite
+  - markdown.extensions.toc
+  - mdx_math
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
@@ -42,3 +46,5 @@ markdown_extensions:
       generic: true
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
