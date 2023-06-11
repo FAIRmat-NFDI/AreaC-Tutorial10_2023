@@ -12,16 +12,16 @@ To navigate to the Entries page, check out [Part I - Exploring NOMAD](part1.md#e
 <!-- Screenshot of the Precision section -->
 
 Since these quantities are new and might not be commonly known, the emphasis is placed here on their definitions, as well as, the bare minimum of theoretical knowledge required to handle them.
-There are also a couple example instructions guiding you to find a specific entry or put the data to use in a notebook.
+There are also a couple example instructions guiding you to a specific entry or for downloading processed data into a notebook.
 Also watch out for the boxes with a pencil sign.
 They delve deeper into some topics that are too tangential for the tutorial.
 
 ## Reciprocal space
 
 In periodic systems, the most universal numerical parameter is the integration of the reciprocal, or k-space, and its sampling.
-Since most times, the sampling points are spaced at fixed intervals, one can define a homogeneous _k-density_
+With the sampling points often being spaced at fixed intervals, one can define a homogeneous _k-density_
 $= \frac{\text{no. k-points}}{||\text{k-lattice vector}||}$.
-As the k-density ramps up, the Bloch wave function converges. <!-- phrase better -->
+As the k-density ramps up, the Bloch wavefunction converges. <!-- phrase better -->
 Note that each dimension has its own k-density, which do not have to coincide.
 To ensure that NOMAD users obtain data that meets their convergence needs, **k-line density** only shows the lowest value.
 
@@ -36,7 +36,7 @@ To ensure that NOMAD users obtain data that meets their convergence needs, **k-l
 
 ## Electronic Structure {#elec_section}
 
-At the level of the unit cell, there are several paradigms on how to represent the electronic wave function.
+At the level of the unit cell, there are several paradigms on how to represent the electronic wavefunction.
 In this tutorial, we explore basis sets that start from plane waves, which mathematically mix well with the Bloch convolution.
 In particular, we address _projector-augmented waves_ (PAW) and _augmented plane waves_ (APW).
 As their names suggest, both extend the regular plane waves in regions where convergence is slow, namely around atomic nuclei.
@@ -71,7 +71,7 @@ $2\pi \frac{||\mathbf{G}_{cut}^{max}||}{||\mathbf{G}_{MT}^{max}||} = ||\mathbf{R
     <img src="../assets/part3_convergence/muffintin.png" alt="Represenation of G^max sphere in reciprocal space, overlayed upon a muffin-tin potential landscape in real space." width="50%" title="plane wave sampling over a muffin-tin potential">
 </p>
 
-Both cutoff types can safely be increased to retrieve entries with progressively better converged valence electron wave functions.
+Both cutoff types can safely be increased to retrieve entries with progressively better converged valence electron wavefunctions.
 
 !!! note "What about _grid spacing_?"
     At the moment, the mesh of the reciprocal or fast Fourier-transformed (FFT) space is not yet extracted.
@@ -87,7 +87,7 @@ This sections contains metadata on the mathematical description of the electroni
 
 <!-- GIF showing browsing -->
 
-Each representation comes with a **scope** and **type**, which specify the entity (e.g. wave function, density, exchange-correlation density, integration grid) and the overall basis set, respectively.
+Each representation comes with a **scope** and **type**, which specify the entity (e.g. wavefunction, density, exchange-correlation density, integration grid) and the overall basis set, respectively.
 Hardly any code sticks to a single set of parameters values, instead adapting them according to task at hand.
 For this reason there can be multiple electrons representations, each with their unique scope.
 Those reported in the search are always the settings for `scope = wavefunction`.
@@ -104,31 +104,38 @@ Examples include cases mentioned above, based on
 
 #### Muffin-tin spheres
 
-APW is an all-electron approach, meaning that all orbitals are relaxed during an electronic self-consistent routine.
+APW is an all-electron approach, meaning that all orbitals are relaxed during an electronic self-consistent (SCF) routine.
 By itself, APW is no longer state-of-the-art and has been followed up by extensions such as LAPW, SLAPW, and APW+lo.
-In this tutorial, APW has been used as a shorthand for this entire family of approaches and not just the progenitor.
+Throughout this tutorial, APW is used as a shorthand for this entire family of approaches and not just the progenitor.
 
-While a full overview of the theory is beyond the scope of this tutorial (the interested reader is referred to XXXX) a quick rundown will explain the NOMAD design choices.
-Essentially, APW exploits the spherical symmetry of the muffin-tin to simplify the Schrödigner or Dirac equation into a _radial_ and _spherical_ part.
-The spherical equation is solved using a harmonics basis, where the main parameter is the harmonics cutoff.
-The radial orbitals for each principal quantum number $n$, meanwhile, have to match up with their plane-wave counterparts at the border.
-For technical reasons, this becomes a cumbersome requirement.
-The workaround in these extensions is to parametrize the energy parameter and add higher-order derivative corrections.
+While a full overview of the theory is beyond the scope of this tutorial, a quick rundown is necessary to explain the NOMAD design choices.
+Within the muffin-tin sphere, APW distinguishes between core and valence states, which can be decoupled.[@gulansExcitingFullpotentialAllelectron2014]
+The core states can then be solved via a standalone spherically symmetric Dirac equation.
+
+Solutions $u\left(r,\epsilon\right)$ to the radial equation for the valence states, meanwhile, are defined in terms of the angular momentum $l$ and an energy parameter $\epsilon_{i\mathbf{k}}$, which can converge towards the orbital energy. <!-- mention splitting by radial and spherical? -->
+Solving directly for $\epsilon_{i\mathbf{k}}$, which is the original APW formulation, however, yields a set of non-linear equations.
+The common workaround is to restrict the index $i \approx n, l$ to just $l$ and treat $\epsilon_{l\mathbf{k}}$ as a constant in $u$, so the equations become linear again. [@gulansExcitingFullpotentialAllelectron2014] [@singhPlanewavesPseudopotentialsLAPW2006]
+Consequentially, only a single main quantum number $n$ can be computed for each $l$-channel.
+This is where the distinction with core electrons comes in handy.
+
+The value of $\epsilon_{l\mathbf{k}}$ in $u\left(r,\epsilon_{l\mathbf{k}}\right)$ is only an initial approximation.
+Further corrections are added as Taylor expansions of $u$ in terms of $\epsilon_{l\mathbf{k}}$.
+A first-order expansion yields LAPW orbitals.
+Another option is to add more basis functions with less complex boundary conditions, called _local orbitals_ (lo).
+The latter offer a flexible way for complementing the basis set and are especially popular for describing semi-core states, i.e. core-level states (as determined by the $n$-restriction) that should really be treated as valence instead, as well as unoccupied states.
 
 <!-- Figure showing the MT orbitals -->
 
-Different flavors come with different orders, e.g. LAPW up to first derivative, and different boundary conditions, such as _local orbitals_ (lo).
-The latter offer a flexible way for complementing the basis set and are especially popular for describing semi-core states, i.e. muffin-tin states that are too diffuse to be well-contained, as well as unoccupied states.
-
-While some APW require a manual setup for each orbital, e.g. Wien2k, others use a couple of steering parameters to generate the orbitals.
-NOMAD typically opts for as concise as possible parameters, though in this case this is not practical for two reasons:
+While some APW require a manual setup for each orbital, e.g. Wien2k, others use a couple of "steering" parameters to generate the orbitals.
+In NOMAD, we typically to keep parameters as concise as possible, though in this case this is not practical for two reasons:
 
 1. There is no consensus on which steering parameters to use. Each code allows different levels of customization.
-2. The initial energy parameters are not commonly not directly used in the SCF routines.
-   Rather, the code will have some algorithm that optimizes the energy parameter based on the geometry.
-   As such, the initial orbital degeneracy is lifted.
+2. The energy parameters provided by the user should not be directly used in the SCF routines.
+   Rather, the code will have some algorithm that optimizes the initial energy parameters based on the geometry.
+   As such, any orbital degeneracy is lifted.
 
-Therefore, NOMAD "unrolls" the steering parameters down to individual radial orbitals, identified by their _type_ (e.g. APW, LAPW, lo), associated _harmonic index_ $l$, _derivative order_.
+To capture the orbitals states completely, NOMAD instead "unrolls" the steering parameters down to individual radial valence orbitals, identified by their _type_ (e.g. APW, LAPW, lo), associated _harmonic index_ $l$, _derivative order_ of $u\left( r \right)$, and of course, the initial energy parameter guess.
+The _sampling grid_ inside the muffin-tin region, as well as the _treatment of the core electrons_ are all specified at the basis set level. 
 
 <!-- Figure showing the unrolling -->
 
