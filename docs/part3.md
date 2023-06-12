@@ -1,6 +1,6 @@
 # Part III: Numerical precision in _ab initio_ calculations.
 
-In this part you will learn about several new quantities and tools for working with numerical convergence in NOMAD.
+In this part, you will learn about several new quantities and tools for working with numerical-precision settings in NOMAD.
 These tools will help you
 
 1. query for the level of precision or conformity that you need.
@@ -19,7 +19,7 @@ To navigate to the Entries page, check out [Part I - Exploring NOMAD](part1.md#e
 Since these quantities are new and might not be commonly known, the emphasis is placed here on their definitions, as well as, the bare minimum of theoretical knowledge required to handle them.
 There are also a couple example instructions guiding you to a specific entry or for downloading processed data into a notebook.
 Also watch out for the boxes with a pencil sign.
-They delve deeper into some topics that are too tangential for the tutorial.
+They delve deeper into some topics and can be skipped at the first reading.
 
 ## Reciprocal space
 
@@ -98,7 +98,7 @@ This sections contains metadata on the mathematical description of the electroni
     </label>
 </div>
 
-Each representation comes with a **scope** and **type**, which specify the entity (e.g. wavefunction, density, exchange-correlation density, integration grid) and the overall basis set, respectively.
+Each representation comes with a **scope** and a **type**, which specify the entity (e.g. wavefunction, density, exchange-correlation density, integration grid) and the overall basis set, respectively.
 Hardly any code sticks to a single set of parameters values, instead adapting them according to task at hand.
 For this reason there can be multiple electrons representations, each with their unique scope.
 Those reported in the search are always the settings for `scope = wavefunction`.
@@ -158,7 +158,7 @@ Where most of these older pseudopotentials where constrained in their range of a
 Where before NOMAD would simply indicate the usage of pseudopotentials, it now gives a more complete description, such as:
 the _title_, the _density functional_ (or sometimes GW) used to generate the pseudopotential, _projector_ information, the recommended _minimum plane wave cutoff_ to be used for the valence electrons, and whether or not it is _norm-conserving_.
 The latter is a useful (but more expensive) integration property and is a prerequisite for some methods. 
-All of this metadata can be found under **run** > **method** > **electrons_representaion** or **atom_parameters** (describes the calculation setup by elemental type).
+All of this metadata can be found under **run** > **method** > **electrons_representation** or **atom_parameters** (describes the calculation setup by elemental type).
 
 !!! note "Why am I seeing double quantities?"
     The NOMAD metainfo is semantically constructed. Consequentially, a quantity may belong under several categories.
