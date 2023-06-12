@@ -28,7 +28,7 @@ With the sampling points often being spaced at fixed intervals, one can define a
 $= \frac{\text{no. k-points}}{||\text{k-lattice vector}||}$.
 As the k-density ramps up, the Bloch wavefunction converges. <!-- phrase better -->
 Note that each dimension has its own k-density, which do not have to coincide.
-To ensure that NOMAD users obtain data that meets their convergence needs, **k-line density** only shows the lowest value.
+To ensure that NOMAD users obtain data that meets their convergence needs, ***k-line density*** only shows the lowest value.
 
 <p align="center">
     <img src="../assets/part3_convergence/klinedensity.png" alt="Schematic representation of k-line density calculation." width="65%" title="k-line density for 3D and 2D lattices">
@@ -59,7 +59,7 @@ A big distinction between PAW and APW is where they each draw this divide:
 The main parameter controlling the plane waves is the longest k-vector $\mathbf{G}^{max}$.
 A basis set of plane waves is then generated at fixed intervals, i.e. the secondary parameter, up to $\mathbf{G}^{max}$.
 Since the sampling is symmetric in each direction, the length, $||\mathbf{G}^{max}||$, suffices.
-By convention, most plane wave (especially PAW) codes express the vector length in energy units, which NOMAD reports as **plane-wave cutoff**,
+By convention, most plane wave (especially PAW) codes express the vector length in energy units, which NOMAD reports as ***planewave cutoff***,
 $E^{max}_{cut} = \frac{\left(\hbar ||\mathbf{G}_{cut}^{max}||\right)^2}{2m_e}$.
 
 <p align="center">
@@ -69,7 +69,7 @@ $E^{max}_{cut} = \frac{\left(\hbar ||\mathbf{G}_{cut}^{max}||\right)^2}{2m_e}$.
 In principle, one can follow the same reasoning for the APW paradigm.
 However, the cutoff energy alone gives an incomplete view.
 While in PAW the plane waves sample the whole supercell, in APW they are barred from the muffin-tin spheres.
-The convention here is to compare the length of $G^{max}$ to the largest muffin-tin radius in reciprocal space, yielding the unit-less fraction, **APW cutoff**,
+The convention here is to compare the length of $G^{max}$ to the largest muffin-tin radius in reciprocal space, yielding the unit-less fraction, ***APW cutoff***,
 $2\pi \frac{||\mathbf{G}_{cut}^{max}||}{||\mathbf{G}_{MT}^{max}||} = ||\mathbf{R}_{MT}^{min}|| \cdot ||\mathbf{G}_{cut}^{max}||$.
 
 <p align="center">
