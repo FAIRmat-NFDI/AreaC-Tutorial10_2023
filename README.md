@@ -16,10 +16,12 @@ Make sure you have the latest pip version:
 pip install --upgrade pip
 ```
 
-Pip-install `mkdocs` and `mkdocs-material`:
+Pip-install `mkdocs` and the following extra packages:
 ```
 pip install mkdocs
 pip install mkdocs-material
+pip install mkdocs-bibtex
+pip install https://github.com/mitya57/python-markdown-math/archive/master.zip
 ```
 
 Launch locally:

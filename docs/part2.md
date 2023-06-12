@@ -45,7 +45,7 @@ Extra visualizations, such as the _Electronic properties_ or the _Workflow graph
     <img src="../assets/part2_upload/workflowgraph.png" alt="Workflow graph" width="40%" title="Workflow graph">
 </p>
 
-Besides Overview, there are also other menus: "Files", a list of all the files present in the entry folder, "Data", the populated metadata sections and quantities, and "Logs, a list of logging success, warnings and errors. In the "Data" menu, you can browse through the specifically populated NOMAD metainfo definitions.
+Besides Overview, there are also other menus: "FILES", a list of all the files present in the entry folder, "DATA", the populated metadata sections and quantities, and "LOGS", a list of logging success, warnings and errors. In the "DATA" menu, you can browse through the specifically populated NOMAD metainfo definitions.
 
 <div class="click-zoom">
     <label>

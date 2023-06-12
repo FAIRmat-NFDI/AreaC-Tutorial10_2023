@@ -63,7 +63,7 @@ graph LR;
     A((Inputs)) --> B[DFT];
     B[DFT] --> C([Output calculation]);
 ```
-To define a workflow manually in NOMAD, you must add a YAML file to the upload folder that contains the relevant input, output, and task information. This file should be named `<filename>.archive.yaml`[^1]. In this case, you should include the file `single_point.archive.yaml` with the following content:
+To define a workflow manually in NOMAD, you must add a YAML file to the upload folder that contains the relevant input, output, and task information. This file should be named `<filename>.archive.yaml`. In this case, you should include the file `single_point.archive.yaml` with the following content:
 
 ```yaml
 workflow2:
@@ -105,6 +105,9 @@ This will produce an extra entry with the following Overview content:
 </div>
 
 Note that you are referencing sections which are lists. Thus, in each case you should be careful to reference the correct section for inputs and outputs (example: a `GeometryOptimization` workflow calculation will have the "Input structure" as `run[0].system[0]`, while the "Output calculation" would also contain `run[0].system[-1]`, and all intermediate steps must input/output the corresponding section system).
+
+!!! note "NOMAD workflow filename"
+    The NOMAD workflow YAML file name, i.e., `<filename>` in the explanation above, can be any custom name defined by the user, but the file **must** keep the extension `.archive.yaml` at the end. This is done in order for NOMAD to recognize this file as a _custom schema_. Custom schemas are widely used in experimental parsing, and you can learn more about them in the [FAIRmat tutorial 8](https://www.fairmat-nfdi.eu/events/fairmat-tutorial-8/tutorial-8-home).
 
 You can extend the workflow meta-information by adding the metholodogical input parameters. These are stored in NOMAD in the section path `run[0].method[-1]`. The new `single_point.archive.yaml` will be:
 
@@ -321,8 +324,3 @@ Here are some general guidelines for preparing your upload folder in order to ma
 - Avoid duplication of files in subfolders. If initially you do a calculation A from which a later calculation B is derived and you want to store B in a subfolder, there is no need to copy the A files inside the subfolder B.
 
 The folder structure used throughout this part is a good example of a clean upload which is friendly and easy to work with when defining NOMAD workflows. Another example can be found in [Part II](part2.md), when you learned how to upload a DFT + GW calculation for bulk Si<sub>2</sub>. In this case, an automatic GW workflow entry was generated.
-
-
-
-
-[^1]: `<filename>` can be any custom name defined by the user, but the file **must** keep the extension `.archive.yaml` at the end.
