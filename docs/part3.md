@@ -167,6 +167,19 @@ The _sampling grid_ inside the muffin-tin region, as well as the _treatment of t
 
 <!-- Figure showing the unrolling -->
 
+!!! note "Uploading the right files"
+    Most APW codes leave the orbital specification out of their main input file.
+    Similarly, they will also write out their actual initial guesses for the energy parameters out to another intermediate file.
+    If you want NOMAD to pick up on these parameters, please include the files in the table below into your upload.
+    They are automatically generated, so there are no extra steps involved.
+
+    code name | file name
+    ----------|----------
+    _exciting_| `<species>.xml`
+    fleur     | `out.xml` (the main output file)
+    Wien2k    | `<calculation>`.inc1
+    Elk       | Not supported yet
+
 #### Pseudopotentials {#pseudo_section}
 
 With the exception of APW, most plane wave codes hide the core structure via an effective potential for the valence electrons.
