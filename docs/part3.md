@@ -23,7 +23,7 @@ They delve deeper into some topics that are too tangential for the tutorial.
 
 ## Reciprocal space
 
-In periodic systems, the most universal numerical parameter is the integration of the reciprocal, or k-space, and its sampling.
+In periodic systems, the most universal numerical parameter is the integration of the reciprocal space, or k-space, and its sampling.
 With the sampling points often being spaced at fixed intervals, one can define a homogeneous _k-density_
 $= \frac{\text{no. k-points}}{||\text{k-lattice vector}||}$.
 As the k-density ramps up, the Bloch wavefunction converges. <!-- phrase better -->
@@ -35,9 +35,10 @@ To ensure that NOMAD users obtain data that meets their convergence needs, ***k-
 </p>
 
 !!! note "Band structure calculations"
-    For their spatial resolution, band structures instead sample along line paths connecting several high-symmetry points.
-    Moreover, line paths can differ in spacing.
-    To accommodate them, NOMAD first projects the k-space grids onto the axes, and then proceeds as usual. <!-- double-check -->
+    For their spatial resolution, band structures sample along line paths connecting several high-symmetry points instead of the reciprocal lattice vectors.
+    Not only can each line path can have its own spacing, their projections onto the reciprocal lattice vectors will vary.
+    In short, they deviate from the fixed spacing requirement, and therefore, NOMAD filters them out.
+    Conceptually, this is fine, since k-line density's aim is provide context to convergence, where this type of sampling does not apply.
 
 ## Electronic Structure {#elec_section}
 
