@@ -6,10 +6,15 @@ These tools will help you
 1. query for the level of precision or conformity that you need.
 2. deploy extracted data into a notebook to start performing data science.
 
-Your starting point is the Entries page > FILTERS (side menu) > Precision.
+Your starting point is the Entries overview page > FILTERS (side menu) > Precision.
 To navigate to the Entries page, check out [Part I - Exploring NOMAD](part1.md#entries_section).
 
-<!-- Screenshot of the Precision section -->
+<div class="click-zoom">
+    <label>
+        <input type="checkbox">
+        <img src="../assets/part3_convergence/GUI_precision.png" alt="Folded out Precision menu on the Entries overview page" width="90%" title="Precision section in Entries - taken on June 12th, 2023 at 10:00h CEST">
+    </label>
+</div>
 
 Since these quantities are new and might not be commonly known, the emphasis is placed here on their definitions, as well as, the bare minimum of theoretical knowledge required to handle them.
 There are also a couple example instructions guiding you to a specific entry or for downloading processed data into a notebook.
@@ -81,11 +86,16 @@ Both cutoff types can safely be increased to retrieve entries with progressively
 ### Core Electrons
 
 The mathematical parameters describing the electronic core region are extracted, but do not appear in the side menu. <!-- core-electron treatment still exists in DFT -->
-To access them, select an entry, e.g. type `entry_id = XXXX` in the search bar > OVERVIEW > DATA.
+To access them, select an entry, e.g. type `entry_id = zxhFQjN5Mny1FW5QEOGxWLPThF3r` in the search bar > OVERVIEW > DATA.
 In the DATA browser follow **run** (all computational data) > **method** ( metadata describing the calculation setup) > **electrons_representation**.
 This sections contains metadata on the mathematical description of the electronic structure.
 
-<!-- GIF showing browsing -->
+<div class="click-zoom">
+    <label>
+        <input type="checkbox">
+        <img src="../assets/part3_convergence/GUI_data_er.gif" alt="Step-by-step guide on how to find electrons_representation in entry_id = zxhFQjN5Mny1FW5QEOGxWLPThF3r" width="90%" title="Finding electrons_representation - taken on June 12th, 2023 at 10:16h CEST">
+    </label>
+</div>
 
 Each representation comes with a **scope** and **type**, which specify the entity (e.g. wavefunction, density, exchange-correlation density, integration grid) and the overall basis set, respectively.
 Hardly any code sticks to a single set of parameters values, instead adapting them according to task at hand.
@@ -167,7 +177,7 @@ Some codes, however, have benchmarked their own suggested settings into a list o
 Lower tiers typically exist to facilitate better run speeds in long simulations or provide an initial starting point for higher tiers to start from and provide high-quality data.
 The main purpose of these tiers, though, is to facilitate standardization and interoperability among code users.
 
-To filter by tier, type `<code name> - <tier name>` (e.g. `VASP - accurate`) into the NOMAD side menu > Precision > Code-specific Tier.
+To filter by tier, type `<code name> - <tier name>` (e.g. `VASP - accurate`) into the Entries overview page > NOMAD side menu > Precision > Code-specific Tier.
 `<code name>` is integral to this combination, because tiers are code-specific and cannot be compared cross-code.
 Lastly, note that `<tier name>` is case-sensitive, but suggestions will pop up once you start typing.
 
