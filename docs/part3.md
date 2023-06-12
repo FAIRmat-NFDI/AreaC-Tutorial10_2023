@@ -6,22 +6,36 @@ These tools will help you
 1. query for the level of precision or conformity that you need.
 2. deploy extracted data into a notebook to start performing data science.
 
-Your starting point is the Entries overview page > FILTERS (side menu) > Precision.
+Note that _precision_ specifies how close a calculation's convergence is with respect to the complete basis set limit, and not necessarily experiments (that would be _accuracy_).
+As such, it only really makes sense when comparing entries of the same system.
+It is best thought of as _a filter that gets applied after you have already chosen your material and method of interest_.
+
+Since these precision quantities are new and by times community-specific, this tutorial places the emphasis on their definitions.
+By times it also briefly touches on the bare minimum of theoretical knowledge required to handle them, but mostly leaves the interested reader with references to follow up on.
+There are also a couple of example instructions guiding you to a specific entry or for downloading processed data into a notebook.
+Lastly, watch out for the boxes with a pencil sign. They delve deeper into some topics and can be skipped at the first reading.
+
+## Lay-out of the Precision section
+
+To start, go to the Entries overview page > FILTERS (side menu) > Precision.
 To navigate to the Entries page, check out [Part I - Exploring NOMAD](part1.md#entries_section).
+The side menu in front of you is ordered so it starts out very general ([**k-line Density**](#k_section), [**Code-specific Tier**](#tier_section))
+and below the choice of **Basis Set**, only contains quantities specific to certain basis set types, e.g. [**Plane-wave Cutoff**](#val_section), [**APW Cutoff**](#val_section).
+The same quantities can be found for each entry in their OVERVIEW page > DATA > **results** > **method** > **simulation** > **precision**.
+Following along with the example below, make sure your precision settings are sensible by filtering down to a well-defined system (cubic-centered Actinium) via FILTERS > Material > Ac > only compositions that ... > sorting by **Formula**.
 
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part3_convergence/GUI_precision.png" alt="Folded out Precision menu on the Entries overview page" width="90%" title="Precision section in Entries - taken on June 12th, 2023 at 10:00h CEST">
+        <img src="../assets/part3_convergence/GUI_filter_precision.gif" alt="Process of locating the precision side menu after filteriing for Ac" width="90%" title="Locating and using the Precision section in Entries - taken on June 12th, 2023 at 13:15h CEST">
     </label>
 </div>
 
-Since these quantities are new and might not be commonly known, the emphasis is placed here on their definitions, as well as, the bare minimum of theoretical knowledge required to handle them.
-There are also a couple example instructions guiding you to a specific entry or for downloading processed data into a notebook.
-Also watch out for the boxes with a pencil sign.
-They delve deeper into some topics and can be skipped at the first reading.
+Some quantities are so specific and / or verbose, that they are relegated to DATA.
+This means that they do not show up in the side menu, nor the search bar.
+[Muffin-tin spheres](#mt_section) gives an example of when it is interesting to check them out and how to do so.
 
-## Reciprocal space
+## Reciprocal space {#k_section}
 
 In periodic systems, the most universal numerical parameter is the integration of the reciprocal space, or k-space, and its sampling.
 With the sampling points often being spaced at fixed intervals, one can define a homogeneous _k-density_
@@ -55,12 +69,12 @@ A big distinction between PAW and APW is where they each draw this divide:
   A (mostly) spherical region, i.e. the muffin-tin sphere, is drawn surrounding the nuclei.
   The valence electrons reside in interstitial region between these spheres. 
 
-### Valence Electrons
+### Valence Electrons {#val_section}
 
 The main parameter controlling the plane waves is the longest k-vector $\mathbf{G}^{max}$.
 A basis set of plane waves is then generated at fixed intervals, i.e. the secondary parameter, up to $\mathbf{G}^{max}$.
 Since the sampling is symmetric in each direction, the length, $||\mathbf{G}^{max}||$, suffices.
-By convention, most plane wave (especially PAW) codes express the vector length in energy units, which NOMAD reports as ***planewave cutoff***,
+By convention, most plane wave (especially PAW) codes express the vector length in energy units, which NOMAD reports as ***plane-wave cutoff***,
 $E^{max}_{cut} = \frac{\left(\hbar ||\mathbf{G}_{cut}^{max}||\right)^2}{2m_e}$.
 
 <p align="center">
@@ -76,6 +90,9 @@ $2\pi \frac{||\mathbf{G}_{cut}^{max}||}{||\mathbf{G}_{MT}^{max}||} = ||\mathbf{R
 <p align="center">
     <img src="../assets/part3_convergence/muffintin.png" alt="Represenation of G^max sphere in reciprocal space, overlayed upon a muffin-tin potential landscape in real space." width="50%" title="plane wave sampling over a muffin-tin potential">
 </p>
+
+NOMAD points out these differences by specifying the unit after the quantity name and between brackets.
+For more detail, hover over the quantity name.
 
 Both cutoff types can safely be increased to retrieve entries with progressively better converged valence electron wavefunctions.
 
@@ -113,7 +130,7 @@ Examples include cases mentioned above, based on
 - spatial boundaries: _muffin-tin_ vs _interstitial_
 - Hamiltonian: _kinetic_ and _electron-nucleus_ interaction vs _electron-electron_ interaction in the case of CP2k's Quickstep algorithm.
 
-#### Muffin-tin spheres
+#### Muffin-tin spheres {#mt_section}
 
 APW is an all-electron approach, meaning that all orbitals are relaxed during an electronic self-consistent (SCF) routine.
 By itself, APW is no longer state-of-the-art and has been followed up by extensions such as LAPW, SLAPW, and APW+lo.
@@ -171,7 +188,7 @@ All of this metadata can be found under **run** > **method** > **electrons_repre
     Wider code-support is being built out.
     NOMAD takes great care in complying with the copyright of the standard POTCAR files and their distribution, so all instances are stripped down to their metadata alone.
 
-## Code-specific tiers
+## Code-specific tiers {#tier_section}
 
 Filtering for the aforementioned quantities requires quite some expertise, and often it is hard to weigh the significance of two parameters to the electronic convergence.
 Some codes, however, have benchmarked their own suggested settings into a list of increasing precision, i.e. _tiers_.
