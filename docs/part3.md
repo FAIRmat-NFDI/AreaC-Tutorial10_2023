@@ -40,9 +40,15 @@ This means that they do not show up in the side menu, nor the search bar.
 In periodic systems, the most universal numerical parameter is the integration of the reciprocal space, or k-space, and its sampling.
 With the sampling points often being spaced at fixed intervals, one can define a homogeneous _k-density_
 $= \frac{\text{no. k-points}}{||\text{k-lattice vector}||}$.
-As the k-density ramps up, the Bloch wavefunction converges. <!-- phrase better -->
-Note that each dimension has its own k-density, which do not have to coincide.
-To ensure that NOMAD users obtain data that meets their convergence needs, ***k-line density*** only shows the lowest value.
+Then, as the k-density ramps up, the Bloch wavefunction converges. <!-- reference? -->
+Each (periodic) axis has its own k-density, and though one normally tries to keep these constant among them, fluctuations may happen due the discretized nature of the k-point sampling.
+To ensure that NOMAD users obtain data that meets their convergence needs, ***k-line density*** only shows the lowest density value.
+
+Many codes only support 3-D unit cells.
+Any lower-dimensional cases are then handled by introducing a physical separation (vacuum) between the otherwise periodic images, as well as reducing the k-point sampling to a minimum (1 grid point).
+Such edge cases can cause false positives, i.e. unphysically low k-line densities, given our current definition.
+NOMAD distinguishes dimensionality in `results.material.toplogy.dimensionality` and will therefore only provide a k-line density in a true 3-D case.
+You may also expect lower-dimensional cases to be supported in the near future, where only periodic axes are accounted for.
 
 <p align="center">
     <img src="../assets/part3_convergence/klinedensity.png" alt="Schematic representation of k-line density calculation." width="65%" title="k-line density for 3D and 2D lattices">
@@ -177,7 +183,7 @@ The _sampling grid_ inside the muffin-tin region, as well as the _treatment of t
     ----------|----------
     _exciting_| `<species>.xml`
     fleur     | `out.xml` (the main output file)
-    Wien2k    | `<calculation>`.inc1
+    Wien2k    | `<calculation>.inc1`
     Elk       | Not supported yet
 
 #### Pseudopotentials {#pseudo_section}
