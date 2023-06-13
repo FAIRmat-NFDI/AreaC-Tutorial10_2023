@@ -199,7 +199,7 @@ Where most of these older pseudopotentials where constrained in their range of a
 Where before NOMAD would simply indicate the usage of pseudopotentials, it now gives a more complete description, such as:
 the _title_, the _density functional_ (or sometimes GW) used to generate the pseudopotential, _projector_ information, the recommended _minimum plane wave cutoff_ to be used for the valence electrons, and whether or not it is _norm-conserving_.
 The latter is a useful (but more expensive) integration property and is a prerequisite for some methods. 
-All of this metadata can be found under **run** > **method** > **electrons_representation** or **atom_parameters** (describes the calculation setup by elemental type).
+To try this out for yourself, look up `entry_id = zz7J6c9cn_K5B4Ecbiasy4xQ-hYl` and navigate to OVERVIEW > DATA > **run** > **method** > **atom_parameters** (describes the calculation setup by elemental type) > **pseudopotential**.
 
 !!! note "Why am I seeing double quantities?"
     The NOMAD metainfo is semantically constructed. Consequentially, a quantity may belong under several categories.
