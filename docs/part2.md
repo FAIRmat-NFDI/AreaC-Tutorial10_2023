@@ -63,4 +63,4 @@ A computational data entry in NOMAD will be composed of the following sections:
 
 ## Querying NOMAD data
 
-In this section, you can learn about how to query processed data in NOMAD by using the Jupyter Notebook prepared specifically to find this entry. This can be found in the following link ..... **ADD LINK**
+In this section, you can learn about how to query processed data in NOMAD by using the Jupyter Notebook prepared specifically to find this entry. This can be found [here](https://nomad-lab.eu/prod/analytics/workshop). Select "FAIRmat Tutorial 10" and click "Start".

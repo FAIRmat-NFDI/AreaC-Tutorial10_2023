@@ -1,6 +1,6 @@
 # Part IV: Workflows and how to link DFT and beyond-DFT calculations.
 
-This part contains the basic knowledge on understanding and learning to use NOMAD workflows, and its relation with DFT and beyond-DFT (GW, BSE, DMFT, etc.) methodologies. You will use a ficticious example of a simulation workflow, where the [files and folder structure](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part5_workflows/example_files.zip) is:
+This part contains the basic knowledge on understanding and learning to use NOMAD workflows, and its relation with DFT and beyond-DFT (GW, BSE, DMFT, etc.) methodologies. You will use a ficticious example of a simulation workflow, where the [files and folder structure](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part4_workflows/example_files.zip) is:
 ```
 .
 ├── pressure1
@@ -52,7 +52,7 @@ The goal of this part is to set up the following workflows:
 2. An overarching workflow entry for each pressure P<sub>i=1,2</sub>, grouping all `SinglePoint` "DFT", "TB", "DMFT at T<sub>1</sub>", and "DMFT at T<sub>2</sub>" tasks.
 3. A top level workflow entry, grouping together all pressure calculations.
 
-The files for all these cases can be found in [Workflow YAML files](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part5_workflows/workflowyaml_files.zip). You can try writing these files yourself first, and then compare them with the tested files.
+The files for all these cases can be found in [Workflow YAML files](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part4_workflows/workflowyaml_files.zip). You can try writing these files yourself first, and then compare them with the tested files.
 
 
 ## Starting example: SinglePoint workflow
@@ -100,7 +100,7 @@ This will produce an extra entry with the following Overview content:
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part5_workflows/singlepoint.png" alt="NOMAD workflow schema" width="90%" title="NOMAD workflow schema">
+        <img src="../assets/part4_workflows/singlepoint.png" alt="NOMAD workflow schema" width="90%" title="NOMAD workflow schema">
     </label>
 </div>
 
@@ -141,7 +141,7 @@ which in turn produces a similar workflow than before, but with an extra input n
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part5_workflows/singlepoint_methodadded.png" alt="SinglePoint workflow visualizer with Method added" width="90%" title="SinglePoint workflow visualizer with Method added">
+        <img src="../assets/part4_workflows/singlepoint_methodadded.png" alt="SinglePoint workflow visualizer with Method added" width="90%" title="SinglePoint workflow visualizer with Method added">
     </label>
 </div>
 
@@ -217,7 +217,7 @@ This workflow (`pressure1.archive.yaml`) file will then produce an entry with th
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part5_workflows/pressure1.png" alt="Pressure P1 workflow visualizer" width="90%" title="Pressure P1 workflow visualizer">
+        <img src="../assets/part4_workflows/pressure1.png" alt="Pressure P1 workflow visualizer" width="90%" title="Pressure P1 workflow visualizer">
     </label>
 </div>
 
@@ -308,7 +308,7 @@ This will produce the following entry and its Overview page:
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part5_workflows/fullworkflow.png" alt="Full workflow visualizer" width="90%" title="Full workflow visualizer">
+        <img src="../assets/part4_workflows/fullworkflow.png" alt="Full workflow visualizer" width="90%" title="Full workflow visualizer">
     </label>
 </div>
 
