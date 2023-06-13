@@ -209,17 +209,30 @@ All of this metadata can be found under **run** > **method** > **electrons_repre
 
 ## Code-specific tiers {#tier_section}
 
-Filtering for the aforementioned quantities requires quite some expertise, and often it is hard to weigh the significance of two parameters to the electronic convergence.
-Some codes, however, have benchmarked their own suggested settings into a list of increasing precision, i.e. _tiers_.
-Lower tiers typically exist to facilitate better run speeds in long simulations or provide an initial starting point for higher tiers to start from and provide high-quality data.
-The main purpose of these tiers, though, is to facilitate standardization and interoperability among code users.
+Filtering for the aforementioned quantities requires quite some expertise, and it is hard often to weigh the significance of two parameters in the electronic convergence.
+Some codes have benchmarked their own suggested settings into a list of increasing precision, i.e. _tiers_.
+Tiers provide the user base with a relatively safe reference, without having to run any benchmarks themselves.
+Consequentially, they facilitate standardization and interoperability among users and / or publications.
+Typically, lower tiers are used to save on resources when exploring large materials' spaces and running large or long simulations.
+They can also act as starting points for higher tiers that provide high-quality data.
 
-To filter by tier, type `<code name> - <tier name>` (e.g. `VASP - accurate`) into the Entries overview page > NOMAD side menu > Precision > Code-specific Tier.
-`<code name>` is integral to this combination, because tiers are code-specific and cannot be compared cross-code.
-Lastly, note that `<tier name>` is case-sensitive, but suggestions will pop up once you start typing.
+Essentially, these tiers hide the high-dimensional parameter values behind a set of hierarchical categories.
+One such good example of this complexity can be found in `entry_id = z-wO_IzCW9sDvysmF500duxvDXDs`.
+The section `run.method.electrons_representation` contains the corresponding settings.
+To view all quantities, including those unique to the code, select _code specific_ in the upper-right corner.
+These are hidden by default.
+
+Back in the Entries overview page, you can filter by tier by typing `<code name> - <tier name>` (e.g. `VASP - accurate`) into the NOMAD side menu > Precision > Code-specific Tier.
+`<code name>` is integral to the format, because tiers are code-specific.
+This quantity is not meant to provide some kind of comparison across codes.
+`<tier name>`, meanwhile, is case-sensitive, but suggestions will pop up once you start typing.
+
+Overall, ***Code-specific tier*** captures a lot of complexity at once, making it great for quick searches.
+Beware though: it is also very picky, and will strongly reduce the number of entries returned.
 
 !!! note "Tier matching"
-    Contrary to other Precision quantities like k-line density, plane-wave cutoff, or APW cutoff, tiers cannot be graded on a continuous scale.
-    Since tiers represent points in a high-dimensional, there is no straightforward way to deviations from these standards.
+    Contrary to other precision quantities like k-line density, plane-wave cutoff, or APW cutoff, tiers are discrete, not continuous.
+    Settings between two tiers are hard to pin down, even qualitatively, since the setting parameters have differing weights.
     Therefore, NOMAD only assigns perfect matches.
-    Even one altered parameter by the user, disqualifies it from the tier categorization (though the data will likely still be very valid and valuable).
+    When even one value in the settings is altered by the user, the calculation is immediately disqualified from the tier.
+    This does not mean that the data is invalid or less valuable, though, just that it will be not show up when the filter is applied.
