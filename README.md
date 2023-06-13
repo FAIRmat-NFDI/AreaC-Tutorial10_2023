@@ -16,11 +16,7 @@ Make sure you have the latest pip version:
 pip install --upgrade pip
 ```
 
-<<<<<<< HEAD
-Pip-install `mkdocs` and the following extra packages:
-=======
 Pip-install the right dependencies:
->>>>>>> Update dependencies list
 ```
 pip install mkdocs
 pip install mkdocs-material
