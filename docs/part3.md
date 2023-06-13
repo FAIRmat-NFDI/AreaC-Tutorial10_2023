@@ -140,27 +140,34 @@ Examples include cases mentioned above, based on
 
 APW is an all-electron approach, meaning that all orbitals are relaxed during an electronic self-consistent (SCF) routine.
 By itself, APW is no longer state-of-the-art and has been followed up by extensions such as LAPW, SLAPW, and APW+lo.
-Throughout this tutorial, APW is used as a shorthand for this entire family of approaches and not just the progenitor.
+Throughout this tutorial, the term _APW_ is used as a shorthand for this entire family of approaches, but in this section alone, it will refer to just the progenitor.
 
-While a full overview of the theory is beyond the scope of this tutorial, a quick rundown is necessary to explain the NOMAD design choices.
-Within the muffin-tin sphere, APW distinguishes between core and valence states, which can be decoupled.[@gulansExcitingFullpotentialAllelectron2014]
-The core states can then be solved via a standalone spherically symmetric Dirac equation.
+While a full overview of the theory is beyond the scope of this tutorial, a quick rundown is necessary to explain some of the NOMAD design choices.
+The muffin-tin potential around the nucleus $\alpha$ allows the code to fall back on a more simple, spherically symmetric Hamiltonian to solve.
+The basis set thus consists out of the harmonics $Y_L\left(r_\alpha\right)$ with radially dependent weights $u\left(r_\alpha, \epsilon\right)$.
+In the original APW approach, the energy parameter $\epsilon$ is a variable that should converge to the respective orbital energies.
+The core states then align with the well-known case of a multi-electron atom system and are tackled separately from the valence states. [@gulansExcitingFullpotentialAllelectron2014]
 
-Solutions $u\left(r,\epsilon\right)$ to the radial equation for the valence states, meanwhile, are defined in terms of the angular momentum $l$ and an energy parameter $\epsilon_{i\mathbf{k}}$, which can converge towards the orbital energy. <!-- mention splitting by radial and spherical? -->
-Solving directly for $\epsilon_{i\mathbf{k}}$, which is the original APW formulation, however, yields a set of non-linear equations.
-The common workaround is to restrict the index $i \approx n, l$ to just $l$ and treat $\epsilon_{l\mathbf{k}}$ as a constant in $u$, so the equations become linear again. [@gulansExcitingFullpotentialAllelectron2014] [@singhPlanewavesPseudopotentialsLAPW2006]
-Consequentially, only a single main quantum number $n$ can be computed for each $l$-channel.
-This is where the distinction with core electrons comes in handy.
+The muffin-tin valence bands, meanwhile, have to match with their plane-wave counterparts at the boundary.
+While this formulation of APW is complete, it leads to a set of non-linear equations.
+More modern implementations linearize these equations by freezing the energy parameter $\epsilon_{l,\alpha}$ by nucleus and harmonic index $l$. [@gulansExcitingFullpotentialAllelectron2014] [@singhPlanewavesPseudopotentialsLAPW2006]
+Obviously, a single $\epsilon_{l,\alpha}$ value per $l$-channel cannot account for dispersion and (anti-)bonding effects, unless they match the state energy perfectly.
+Instead, corrections are worked in by adding higher-order derivatives of $u\left(r_\alpha, \epsilon\right)$ to the basis set.
+Likewise, each derivative order must also match up at the boundary.
+If the corrections run up to first-order, the approach is called LAPW, else SLAPW for those beyond.
 
-The value of $\epsilon_{l\mathbf{k}}$ in $u\left(r,\epsilon_{l\mathbf{k}}\right)$ is only an initial approximation.
-Further corrections are added as Taylor expansions of $u$ in terms of $\epsilon_{l\mathbf{k}}$.
-A first-order expansion yields LAPW orbitals.
-Another option is to add more basis functions with less complex boundary conditions, called _local orbitals_ (lo).
-The latter offer a flexible way for complementing the basis set and are especially popular for describing semi-core states, i.e. core-level states (as determined by the $n$-restriction) that should really be treated as valence instead, as well as unoccupied states.
+Another effect of constraining the energy parameter $\epsilon$ to $l$, is that it cannot account for wavefunctions with different nodes or main quantum numbers $n$.
+Some core states, however, are too high-energy to be well-contained within their muffin-tin spheres.
+They are typically referred to as _semicore_ and have to be treated as valence states.
+The preferred way to tackle them, is by adding an additional wavefunction, similar to LAPW or SLAPW, but with a normalization requirements in lieu of some boundary constraints.
+These are called _local orbitals_ (lo) and can be freely added by the user to supplement APW or LAPW.
+By no means are they restricted to describing semicore states, but can also tackle additional _unoccupied states_ (used in beyond-DFT) as well.
 
-<!-- Figure showing the MT orbitals -->
+<p align="center">
+    <img src="../assets/part3_convergence/apw_scheme.png" alt="APW family scheme" width="65%" title="Various radial wavefunction constructions in the APW family with their respective boundary conditions (BO). The red wavefunction represents the true solution, which can be variationally approximated, as shown in pink. The modern implementations use APW (blue) approximation, which can be further fine-tuned using its first-order derivative (LAPW, green). The local orbital (LO, orange) with its integration constraint is formulatd similar to LAPW.">
+</p>
 
-While some APW require a manual setup for each orbital, e.g. Wien2k, others use a couple of "steering" parameters to generate the orbitals.
+While some APW codes require a manual setup for each orbital, e.g. Wien2k, others use a couple of "steering" parameters to generate the orbitals.
 In NOMAD, we typically to keep parameters as concise as possible, though in this case this is not practical for two reasons:
 
 1. There is no consensus on which steering parameters to use. Each code allows different levels of customization.
@@ -169,9 +176,7 @@ In NOMAD, we typically to keep parameters as concise as possible, though in this
    As such, any orbital degeneracy is lifted.
 
 To capture the orbitals states completely, NOMAD instead "unrolls" the steering parameters down to individual radial valence orbitals, identified by their _type_ (e.g. APW, LAPW, lo), associated _harmonic index_ $l$, _derivative order_ of $u\left( r \right)$, and of course, the initial energy parameter guess.
-The _sampling grid_ inside the muffin-tin region, as well as the _treatment of the core electrons_ are all specified at the basis set level. 
-
-<!-- Figure showing the unrolling -->
+The _sampling grid_ inside the muffin-tin region, as well as the _treatment of the core electrons_ are all specified at the basis set level.
 
 !!! note "Uploading the right files"
     Most APW codes leave the orbital specification out of their main input file.
