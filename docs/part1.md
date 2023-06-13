@@ -3,7 +3,7 @@
 This part contains the information on how to explore the NOMAD Archive and Repository (in short, NOMAD-lab) in order to find electronic-structure calculations data. A more general tutorial can be found in the [FAIRmat tutorial 1](https://www.fairmat-nfdi.eu/events/fairmat-tutorial-1/tutorial-1-home) and the materials therein.
 
 
-## Exploring NOMAD
+## Exploring NOMAD {#entries_section}
 
 Go to the [NOMAD-lab website](https://nomad-lab.eu/nomad-lab/). 
 
