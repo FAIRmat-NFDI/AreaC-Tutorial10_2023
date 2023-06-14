@@ -91,7 +91,7 @@ In principle, one can follow the same reasoning for the APW paradigm.
 However, the cutoff energy alone gives an incomplete view.
 While in PAW the plane waves sample the whole supercell, in APW they are barred from the muffin-tin spheres.
 The convention here is to compare the length of $G^{max}$ to the largest muffin-tin radius in reciprocal space, yielding the unit-less fraction, ***APW cutoff***,
-$2\pi \frac{||\mathbf{G}_{cut}^{max}||}{||\mathbf{G}_{MT}^{max}||} = ||\mathbf{R}_{MT}^{min}|| \cdot ||\mathbf{G}_{cut}^{max}||$.
+$||\mathbf{R}_{MT}^{min}|| \cdot ||\mathbf{G}_{cut}^{max}||$.
 
 <p align="center">
     <img src="../assets/part3_convergence/muffintin.png" alt="Represenation of G^max sphere in reciprocal space, overlayed upon a muffin-tin potential landscape in real space." width="50%" title="plane wave sampling over a muffin-tin potential">
@@ -164,7 +164,7 @@ These are called _local orbitals_ (lo) and can be freely added by the user to su
 By no means are they restricted to describing semicore states, but can also tackle additional _unoccupied states_ (used in beyond-DFT) as well.
 
 <p align="center">
-    <img src="../assets/part3_convergence/apw_scheme.png" alt="APW family scheme" width="65%" title="Various radial wavefunction constructions in the APW family with their respective boundary conditions (BO). The red wavefunction represents the true solution, which can be variationally approximated, as shown in pink. The modern implementations use APW (blue) approximation, which can be further fine-tuned using its first-order derivative (LAPW, green). The local orbital (LO, orange) with its integration constraint is formulatd similar to LAPW.">
+    <img src="../assets/part3_convergence/apw_scheme.png" alt="APW family scheme" width="75%" title="Various radial wavefunction constructions in the APW family with their respective boundary conditions (BO). The red wavefunction represents the true solution, which can be variationally approximated, as shown in pink. The modern implementations use APW (blue) approximation, which can be further fine-tuned using its first-order derivative (LAPW, green). The local orbital (LO, orange) with its integration constraint is formulatd similar to LAPW.">
 </p>
 
 While some APW codes require a manual setup for each orbital, e.g. Wien2k, others use a couple of "steering" parameters to generate the orbitals.
