@@ -11,7 +11,7 @@ Go to the [NOMAD Entries page](https://nomad-lab.eu/prod/v1/staging/gui/search/e
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part2_upload/upload1.png" alt="Uploads page 1" width="90%" title="Uploads page 1">
+        <img src="../assets/part2_upload/upload1.png" alt="Uploads page 1" width="90%" title="Uploads page.">
     </label>
 </div>
 
@@ -20,29 +20,29 @@ You can then click on "Create a new upload" button, or even try one of the examp
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part2_upload/gwupload.gif" alt="GW upload gif" width="90%" title="GW upload gif">
+        <img src="../assets/part2_upload/gwupload.gif" alt="GW upload gif" width="90%" title="Creating a new upload with DFT+GW data.">
     </label>
 </div>
 
 
 ## Browsing entries
 
-As you can see in the GIF, after we drag-and-drop the zipped files a processing starts. NOMAD will try to find the corresponding parsers, and if succesful, new entries are generated. In this example, you are uploading a DFT + GW calculation for which three entries are generated: `DFT SinglePoint`, `GW SinglePoint`, and `GW`. You can later visit the [Part IV](part4.md) to learn more, but for now is enough to know that NOMAD differentiates between the DFT part, the GW part, and then combines both in what is called the `GW workflow` entry. This last one is the one containing the combined meta-information of DFT and GW, and thus, it is the most general entry of all three.
+As you can see in the GIF, after we drag-and-drop the zipped files a processing starts. NOMAD will try to find the corresponding parsers, and if succesful, new entries are generated. In this example, you are uploading a DFT + GW calculation for which three entries are generated: `DFT SinglePoint`, `GW SinglePoint`, and `GW`. You can later visit the [Part IV](part4.md) to learn more, but for now is enough to know that NOMAD differentiates between the DFT part, the GW part, and then combines both in what is called the `GW workflow` entry. This last one is the one containing the combined meta-information of DFT and GW, and thus, it is the most general entry of all three.GW upload gi
 
 You can browse each entry by clicking on right arrow `→`. You will land in the Overview page of the entry, which contains basic information and visualizations for the entry.
 
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part2_upload/overview.png" alt="Entry overview" width="90%" title="Entry overview">
+        <img src="../assets/part2_upload/overview.png" alt="Entry overview" width="90%" title="DFT+GW entry overview page.">
     </label>
 </div>
 
 Extra visualizations, such as the _Electronic properties_ or the _Workflow graph_ will appear depending on the character of the entry (for example, a Molecular Dynamics calculation will not contain _Electronic properties_ but rather _Thermodynamic properties_ and _Trajectories_ visualizations, see [FAIRmat tutorial 7](https://www.fairmat-nfdi.eu/events/fairmat-tutorial-7/tutorial-7-home)).
 
 <p align="center">
-    <img src="../assets/part2_upload/electronicproperties.png" alt="Electronic properties" width="40%" title="Electronic properties">
-    <img src="../assets/part2_upload/workflowgraph.png" alt="Workflow graph" width="40%" title="Workflow graph">
+    <img src="../assets/part2_upload/electronicproperties.png" alt="Electronic properties" width="40%" title="Electronic properties card.">
+    <img src="../assets/part2_upload/workflowgraph.png" alt="Workflow graph" width="40%" title="Workflow graph card.">
 </p>
 
 Besides Overview, there are also other menus: "FILES", a list of all the files present in the entry folder, "DATA", the populated metadata sections and quantities, and "LOGS", a list of logging success, warnings and errors. In the "DATA" menu, you can browse through the specifically populated NOMAD metainfo definitions.
@@ -50,7 +50,7 @@ Besides Overview, there are also other menus: "FILES", a list of all the files p
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part2_upload/datatab.png" alt="Metadata entry menu" width="90%" title="Metadata entry menu">
+        <img src="../assets/part2_upload/datatab.png" alt="Metadata entry menu" width="90%" title="DFT+GW entry data page.">
     </label>
 </div>
 
@@ -63,4 +63,4 @@ A computational data entry in NOMAD will be composed of the following sections:
 
 ## Querying NOMAD data
 
-In this section, you can learn about how to query processed data in NOMAD by using the Jupyter Notebook prepared specifically to find this entry. This can be found [here](https://nomad-lab.eu/prod/analytics/workshop). Select "FAIRmat Tutorial 10" and click "Start".
+In this section, you can learn about how to query processed data in NOMAD by using the Jupyter Notebook prepared specifically to find this entry. This can be found [here](hhttps://cloud.nomad-lab.eu/ai-toolkit/workshop). Select "FAIRmat Tutorial 10" and click "Start".

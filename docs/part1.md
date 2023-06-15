@@ -10,8 +10,8 @@ Go to the [NOMAD-lab website](https://nomad-lab.eu/nomad-lab/).
 There are two main versions when exploring NOMAD-lab: the stable version (by clicking the "Open NOMAD" button) and the Beta or staging version. As the current NOMAD infrastructure is constantly being updated, we recommend you to go to the [Beta version](https://nomad-lab.eu/prod/v1/staging/gui/search/entries). The link can be also found when scrolling down in the main landing page of NOMAD-lab or when clicking on the top menu "Solutions > NOMAD" and scrolling down.
 
 <p align="center">
-    <img src="../assets/part1_explore/beta1.png" alt="Finding the Beta in the website, option 1" width="45%" title="NOMAD Beta option 1">
-    <img src="../assets/part1_explore/beta2.png" alt="Finding the Beta in the website, option 2" width="41.5%" title="NOMAD Beta option 2">
+    <img src="../assets/part1_explore/beta1.png" alt="Finding the Beta in the website, option 1" width="45%" title="NOMAD Beta at the bottom of the website.">
+    <img src="../assets/part1_explore/beta2.png" alt="Finding the Beta in the website, option 2" width="41.5%" title="NOMAD Beta inside Solutions > NOMAD.">
 </p>
 
 The landing NOMAD Entries page is a very intuitive and easy-to-use Graphical User Interface (GUI). Here you can explore data according to your preferences by clicking on the filter menus on the left. You can then select a variety of quantities that characterize the Material or system under study, the methodology parameters followed in the calculation or experiment, and the output properties. 
@@ -19,13 +19,13 @@ The landing NOMAD Entries page is a very intuitive and easy-to-use Graphical Use
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part1_explore/explore.png" alt="Explore GUI page" width="90%" title="Explore GUI page">
+        <img src="../assets/part1_explore/explore.png" alt="Explore GUI page" width="90%" title="Exploring entries GUI page.">
     </label>
 </div>
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part1_explore/materials.png" alt="Materials menu" width="90%" title="Materials menu">
+        <img src="../assets/part1_explore/materials.png" alt="Materials menu" width="90%" title="Materials filter menu.">
     </label>
 </div>
 
@@ -39,7 +39,7 @@ The most important aspect of NOMAD is the metainfo definitions. The whole set of
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part1_explore/nomadmetainfo.png" alt="The NOMAD metainfo" width="90%" title="The NOMAD metainfo">
+        <img src="../assets/part1_explore/nomadmetainfo.png" alt="The NOMAD metainfo" width="90%" title="The NOMAD metainfo.">
     </label>
 </div>
 
@@ -48,6 +48,6 @@ Another important functionality in NOMAD is being able to perform queries and an
 <div class="click-zoom">
     <label>
         <input type="checkbox">
-        <img src="../assets/part1_explore/api.png" alt="API query" width="90%" title="API query">
+        <img src="../assets/part1_explore/api.png" alt="API query" width="90%" title="Generating an API query from filters.">
     </label>
 </div>

@@ -1,6 +1,6 @@
 # Part IV: Workflows and how to link DFT and beyond-DFT calculations.
 
-This part contains the basic knowledge on understanding and learning to use NOMAD workflows, and its relation with DFT and beyond-DFT (GW, BSE, DMFT, etc.) methodologies. You will use a ficticious example of a simulation workflow, where the [files and folder structure](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part4_workflows/example_files.zip) is:
+This part contains the basic knowledge on understanding and learning to use NOMAD workflows, and its relation with DFT and beyond-DFT (GW, BSE, DMFT, etc.) methodologies. You will use a ficticious example of a simulation workflow, where the [files and folder structure](https://www.fairmat-nfdi.eu/uploads/Area%20C/example_files.zip) is:
 ```
 .
 ├── pressure1
@@ -27,8 +27,8 @@ This part contains the basic knowledge on understanding and learning to use NOMA
 Each of the _mainfiles_ represent an electronic-structure calculation (either [DFT](https://en.wikipedia.org/wiki/Density_functional_theory), [TB](https://en.wikipedia.org/wiki/Tight_binding), or [DMFT](https://en.wikipedia.org/wiki/Dynamical_mean-field_theory)) which in turn is then parsed into a singular _entry_ in NOMAD. When dragged into the [NOMAD Upload page](https://nomad-lab.eu/prod/v1/staging/gui/user/uploads), these files should generate 8 entries in total. This folder structure presents a typical workflow calculation which can be represented as a provenance graph:
 ```mermaid
 graph LR;
-    A((Inputs)) --> B1[DFT];
-    A((Inputs)) --> B2[DFT];
+    A2((Inputs)) --> B2[DFT];
+    A1((Inputs)) --> B1[DFT];
     subgraph pressure P<sub>2</sub>
     B2[DFT] --> C2[TB];
     C2[TB] --> D21[DMFT at T<sub>1</sub>];
@@ -52,7 +52,7 @@ The goal of this part is to set up the following workflows:
 2. An overarching workflow entry for each pressure P<sub>i=1,2</sub>, grouping all `SinglePoint` "DFT", "TB", "DMFT at T<sub>1</sub>", and "DMFT at T<sub>2</sub>" tasks.
 3. A top level workflow entry, grouping together all pressure calculations.
 
-The files for all these cases can be found in [Workflow YAML files](https://github.com/FAIRmat-NFDI/AreaC-Tutorial10_2023/blob/main/docs/assets/part4_workflows/workflowyaml_files.zip). You can try writing these files yourself first, and then compare them with the tested files.
+The files for all these cases can be found in [Workflow YAML files](https://www.fairmat-nfdi.eu/uploads/Area%20C/workflowyaml_files.zip). You can try writing these files yourself first, and then compare them with the tested files.
 
 
 ## Starting example: SinglePoint workflow
@@ -319,7 +319,7 @@ There are some cases where the NOMAD infrastructure is able to recognize certain
 
 Here are some general guidelines for preparing your upload folder in order to make it easier for the _automatic workflow recognition_ to work:
 
-- Always organize your files in an **upwards-downwards structure**, i.e., the initial _tasks_ should be upper in the directory tree, while the later _tasks_ lower on it.
+- Always organize your files in an **top-down structure**, i.e., the initial _tasks_ should be upper in the directory tree, while the later _tasks_ lower on it.
 - Avoid having to go up and down between folders if some properties are derived between these files. These situations are very complicated to predict for the current NOMAD infrastructure.
 - Avoid duplication of files in subfolders. If initially you do a calculation A from which a later calculation B is derived and you want to store B in a subfolder, there is no need to copy the A files inside the subfolder B.
 
