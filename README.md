@@ -8,7 +8,7 @@ python3 -m venv .pyenvtuto
 ```
 and activate it in your shell:
 ```
-. .pyenvdoc/bin/activate
+. .pyenvtuto/bin/activate
 ```
 
 Make sure you have the latest pip version:
